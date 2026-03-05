@@ -60,47 +60,32 @@
 | **模式** | **两套主题**：Dark + Light，共享设计语言 |
 | **产出文件** | `velvet-dark.css` + `velvet-light.css` |
 | **适用场景** | 技术笔记、学术笔记、日常 Logbook |
-| **中文优化** | 必须，中文使用系统默认字体 |
+| **中文优化** | 必须，优先使用系统已安装的 `寒蝉全圆体`，缺失时回退系统字体 |
 
 ---
 
 ## 三、字体方案
 
-### 3.1 字体来源
+### 3.1 字体配置（系统安装）
 
-| 字体 | 用途 | 来源路径 |
+| 字体 | 用途 | 配置方式 |
 |------|------|----------|
-| **Gill Sans Nova** | 英文正文 / 标题 | `./gill-sans-nova-medium-italic.ttf`（通过 `@font-face` 引入） |
-| **ChillRoundF** | 中文正文 / 标题 | `./ChillRoundF.ttf`（通过 `@font-face` 引入） |
-| **FuraCode Nerd Font** | 代码（行内 + 代码块） | `~/Library/Fonts/FuraCodeNerdFontComplete-Retina.ttf`（已安装） |
+| **Gill Sans Nova** | 英文正文 / 标题 | 使用 `font-family` 字体名（系统已安装） |
+| **寒蝉全圆体** | 中文正文 / 标题 | 使用 `font-family` 字体名（系统已安装） |
+| **FuraCode Nerd Font** | 代码（行内 + 代码块） | 使用 `font-family` 字体名（系统已安装） |
 
 ### 3.2 CSS 字体栈
 
 ```css
-/* 在 CSS 文件头部引入字体 */
-@font-face {
-  font-family: "Gill Sans Nova";
-  src: url("velvet-dark/gill-sans-nova-medium-italic.ttf") format("truetype");
-  font-weight: 500;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "ChillRoundF";
-  src: url("velvet-dark/ChillRoundF.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-
 :root {
-  /* 英文优先 Gill Sans Nova，中文使用 ChillRoundF 圆体 */
-  --font-body:    "Gill Sans Nova", "ChillRoundF", sans-serif;
-  --font-heading: "Gill Sans Nova", "ChillRoundF", sans-serif;
-  --font-code:    "FuraCode Nerd Font", "Fira Code", monospace;
+  /* 直接使用系统已安装字体名，不依赖本地字体文件 */
+  --font-body:    "Gill Sans Nova", "寒蝉全圆体", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-heading: "Gill Sans Nova", "寒蝉全圆体", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-code:    "FuraCode Nerd Font", "Fira Code", ui-monospace, "SFMono-Regular", monospace;
 }
 ```
 
-> **注意**：Typora 自定义字体需将 `.ttf` 放入主题同名文件夹内（如 `velvet-dark/`），通过 `@font-face` 相对路径引用。两个字体文件都需要复制进去。
+> **注意**：当前主题不使用 `@font-face`，无需将 `.ttf` 复制到主题目录；只要系统里已安装上述字体即可。
 
 ---
 
@@ -225,23 +210,15 @@
 typoratheme/
 ├── THEME_PLAN.md                          ← 本文件
 ├── velvet-dark.css                        ← Dark 主题 CSS
-├── velvet-dark/
-│   ├── gill-sans-nova-medium-italic.ttf   ← 英文字体
-│   └── ChillRoundF.ttf                   ← 中文圆体字体
 ├── velvet-light.css                       ← Light 主题 CSS
-├── velvet-light/
-│   ├── gill-sans-nova-medium-italic.ttf   ← 英文字体
-│   └── ChillRoundF.ttf                   ← 中文圆体字体
 ├── IMG_6694.jpeg                          ← 参考图
 ├── IMG_6696.jpeg
 ├── IMG_6697.jpeg
 ├── IMG_6733.PNG
-├── IMG_6734.PNG
-├── gill-sans-nova-medium-italic.ttf       ← 英文字体原件
-└── ChillRoundF.ttf                        ← 中文字体原件
+└── IMG_6734.PNG
 ```
 
-> 安装方式：将 `velvet-dark.css`、`velvet-dark/` 文件夹（或 light 版）一起复制到 Typora 主题目录：
+> 安装方式：将 `velvet-dark.css`、`velvet-light.css` 复制到 Typora 主题目录：
 > `~/Library/Application Support/abnerworks.Typora/themes/`
 
 ---
@@ -249,8 +226,8 @@ typoratheme/
 ## 七、实现步骤
 
 ### Phase 1 — 基础搭建
-1. 创建目录结构，复制字体文件
-2. 编写 Dark CSS：CSS 变量 → `@font-face` → 正文排版
+1. 创建目录结构，准备 Dark/Light 两套 CSS
+2. 编写 Dark CSS：CSS 变量 → 系统字体栈 → 正文排版
 3. 编写 Light CSS：继承相同结构，替换颜色变量
 
 ### Phase 2 — 核心元素
@@ -405,4 +382,4 @@ typoratheme/
 >
 > **Light 版**：温润灰白纸张上，深色彩标题层次分明如同学术论文，配色克制但不单调。适合日间阅读和 PDF 导出。
 >
-> 两版共享同一设计语言 — **Gill Sans Nova** 的优雅英文搭配 **ChillRoundF** 圆体中文的柔和可爱，**FuraCode Nerd Font** 让代码块既专业又有 Nerd 图标支持。
+> 两版共享同一设计语言 — **Gill Sans Nova** 的优雅英文搭配 **寒蝉全圆体** 的柔和中文字形，**FuraCode Nerd Font** 让代码块既专业又有 Nerd 图标支持。

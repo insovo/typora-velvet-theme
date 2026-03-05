@@ -1,26 +1,12 @@
 /*
  * Velvet Dark — A Typora Theme
  * Dark background + colorful headings + elegant typography
- * Fonts: Gill Sans Nova (EN) / ChillRoundF (CN) / FuraCode Nerd Font (Code)
+ * Fonts: Gill Sans Nova / 寒蝉全圆体 / FuraCode Nerd Font (system installed)
  */
 
 /* ============================================================
-   Font Face
+   Font Stack
    ============================================================ */
-
-@font-face {
-  font-family: "Gill Sans Nova";
-  src: url("velvet-dark/gill-sans-nova-medium-italic.ttf") format("truetype");
-  font-weight: 500;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "ChillRoundF";
-  src: url("velvet-dark/ChillRoundF.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
 
 /* ============================================================
    CSS Variables
@@ -66,9 +52,9 @@
   --scrollbar:     #45475a;
   --scrollbar-hover: #585b70;
 
-  --font-body:    "Gill Sans Nova", "ChillRoundF", sans-serif;
-  --font-heading: "Gill Sans Nova", "ChillRoundF", sans-serif;
-  --font-code:    "FuraCode Nerd Font", "Fira Code", monospace;
+  --font-body:    "Gill Sans Nova", "寒蝉全圆体", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", "Helvetica Neue", Arial, sans-serif;
+  --font-heading: "Gill Sans Nova", "寒蝉全圆体", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", "Helvetica Neue", Arial, sans-serif;
+  --font-code:    "FuraCode Nerd Font", "Fira Code", ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
   --font-size:    16px;
   --line-height:  1.8;
