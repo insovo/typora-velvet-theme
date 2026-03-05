@@ -1,0 +1,686 @@
+/*
+ * Velvet Dark — A Typora Theme
+ * Dark background + colorful headings + elegant typography
+ * Fonts: Gill Sans Nova (EN) / ChillRoundF (CN) / FuraCode Nerd Font (Code)
+ */
+
+/* ============================================================
+   Font Face
+   ============================================================ */
+
+@font-face {
+  font-family: "Gill Sans Nova";
+  src: url("velvet-dark/gill-sans-nova-medium-italic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "ChillRoundF";
+  src: url("velvet-dark/ChillRoundF.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* ============================================================
+   CSS Variables
+   ============================================================ */
+
+:root {
+  --bg-primary:    #1e1e2e;
+  --bg-secondary:  #181825;
+  --bg-tertiary:   #11111b;
+  --bg-hover:      #252536;
+  --bg-select:     #585b7066;
+
+  --fg-primary:    #cdd6f4;
+  --fg-secondary:  #a6adc8;
+  --fg-muted:      #6c7086;
+
+  --h1:            #f38ba8;
+  --h2:            #fab387;
+  --h3:            #f9e2af;
+  --h4:            #a6e3a1;
+  --h5:            #89b4fa;
+  --h6:            #cba6f7;
+
+  --link:          #89dcfe;
+  --bold:          #f38ba8;
+  --italic:        #cba6f7;
+  --highlight-bg:  #f9e2af33;
+
+  --code-inline-bg:   #313244;
+  --code-inline-fg:   #94e2d5;
+  --code-block-bg:    #11111b;
+  --code-block-fg:    #cdd6f4;
+
+  --quote-border:  #00bcd4;
+  --quote-bg:      #89b4fa0d;
+  --quote-fg:      #bac2de;
+
+  --table-border:  #45475a;
+  --table-header:  #313244;
+  --table-stripe:  #252536;
+
+  --hr-color:      #45475a;
+  --scrollbar:     #45475a;
+  --scrollbar-hover: #585b70;
+
+  --font-body:    "Gill Sans Nova", "ChillRoundF", sans-serif;
+  --font-heading: "Gill Sans Nova", "ChillRoundF", sans-serif;
+  --font-code:    "FuraCode Nerd Font", "Fira Code", monospace;
+
+  --font-size:    16px;
+  --line-height:  1.8;
+
+  --guide-width:  1.5px;
+  --guide-color:  #89dceb;
+  --guide-item-h: 2.1em;
+}
+
+/* ============================================================
+   Base / Body
+   ============================================================ */
+
+html {
+  font-size: var(--font-size);
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--fg-primary);
+  line-height: var(--line-height);
+  background-color: var(--bg-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+#write {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 30px 60px 100px;
+}
+
+/* Focus mode */
+.on-focus-mode blockquote {
+  border-left-color: var(--quote-border) !important;
+}
+
+/* ============================================================
+   Headings
+   ============================================================ */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.4;
+  margin-top: 1.6em;
+  margin-bottom: 0.6em;
+}
+
+h1 {
+  font-size: 2em;
+  color: var(--h1);
+  padding-bottom: 0.3em;
+  border-bottom: 2px solid var(--h1);
+}
+
+h2 {
+  font-size: 1.6em;
+  color: var(--h2);
+}
+
+h3 {
+  font-size: 1.35em;
+  color: var(--h3);
+}
+
+h4 {
+  font-size: 1.15em;
+  color: var(--h4);
+}
+
+h5 {
+  font-size: 1.05em;
+  color: var(--h5);
+}
+
+h6 {
+  font-size: 1em;
+  color: var(--h6);
+}
+
+/* ============================================================
+   Paragraph & Text
+   ============================================================ */
+
+p {
+  margin: 0.8em 0;
+}
+
+strong {
+  color: var(--bold);
+  font-weight: 700;
+}
+
+em {
+  color: var(--italic);
+  font-style: italic;
+}
+
+mark {
+  background-color: var(--highlight-bg);
+  color: var(--fg-primary);
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+
+/* ============================================================
+   Links
+   ============================================================ */
+
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ============================================================
+   Blockquote
+   ============================================================ */
+
+blockquote {
+  margin: 1em 0;
+  padding: 0.6em 1.2em;
+  border-left: 3px solid var(--quote-border);
+  background-color: var(--quote-bg);
+  color: var(--quote-fg);
+  border-radius: 0 6px 6px 0;
+}
+
+blockquote blockquote {
+  border-left-color: var(--h6);
+}
+
+/* ============================================================
+   Lists
+   ============================================================ */
+
+ul, ol {
+  padding-left: 1.8em;
+  margin: 0.5em 0;
+}
+
+li {
+  margin: 0.25em 0;
+}
+
+/* Colored bullets by nesting level */
+ul li { list-style-type: disc; }
+ul > li::marker {
+  color: var(--h1);
+}
+ul > li > ul > li::marker {
+  color: var(--h5);
+}
+ul > li > ul > li > ul > li::marker {
+  color: var(--h4);
+}
+ul > li > ul > li > ul > li > ul > li::marker {
+  color: var(--h6);
+}
+
+ol > li::marker {
+  color: var(--h2);
+  font-weight: 600;
+}
+
+/* Dynamic guide lines — vertical + L-shape on hover */
+#write li {
+  position: relative;
+}
+/* Vertical line segments on siblings above hovered item */
+#write li:hover > ul > li:has(~ li:hover)::before,
+#write li:hover > ol > li:has(~ li:hover)::before {
+  content: "";
+  position: absolute;
+  width: var(--guide-width);
+  top: calc(var(--guide-item-h) / 2 * -1);
+  left: -2.85em;
+  height: calc(100% + 0.35em);
+  pointer-events: none;
+  z-index: 1;
+  background: #f38ba8;
+}
+/* L-shaped connector on the hovered item */
+#write li:hover > ul > li:hover::before,
+#write li:hover > ol > li:hover::before {
+  content: "";
+  position: absolute;
+  top: calc(var(--guide-item-h) / 2 * -1);
+  left: -2.85em;
+  bottom: calc(100% - var(--guide-item-h) / 2 + 0.15em);
+  width: 1.7em;
+  border-bottom-left-radius: 4px;
+  pointer-events: none;
+  z-index: 1;
+  border-bottom: var(--guide-width) solid #f38ba8;
+  border-left: var(--guide-width) solid #f38ba8;
+}
+/* Shorter L-shape for ordered lists */
+#write li:hover > ol > li:hover::before {
+  width: 1.4em;
+}
+/* Level 2 — 蓝 */
+#write li li:hover > ul > li:has(~ li:hover)::before,
+#write li li:hover > ol > li:has(~ li:hover)::before {
+  background: #89b4fa;
+}
+#write li li:hover > ul > li:hover::before,
+#write li li:hover > ol > li:hover::before {
+  border-left-color: #89b4fa;
+  border-bottom-color: #89b4fa;
+}
+/* Level 3 — 绿 */
+#write li li li:hover > ul > li:has(~ li:hover)::before,
+#write li li li:hover > ol > li:has(~ li:hover)::before {
+  background: #a6e3a1;
+}
+#write li li li:hover > ul > li:hover::before,
+#write li li li:hover > ol > li:hover::before {
+  border-left-color: #a6e3a1;
+  border-bottom-color: #a6e3a1;
+}
+/* Level 4 — 紫 */
+#write li li li li:hover > ul > li:has(~ li:hover)::before,
+#write li li li li:hover > ol > li:has(~ li:hover)::before {
+  background: #cba6f7;
+}
+#write li li li li:hover > ul > li:hover::before,
+#write li li li li:hover > ol > li:hover::before {
+  border-left-color: #cba6f7;
+  border-bottom-color: #cba6f7;
+}
+/* Level 5 — 橙 */
+#write li li li li li:hover > ul > li:has(~ li:hover)::before,
+#write li li li li li:hover > ol > li:has(~ li:hover)::before {
+  background: #fab387;
+}
+#write li li li li li:hover > ul > li:hover::before,
+#write li li li li li:hover > ol > li:hover::before {
+  border-left-color: #fab387;
+  border-bottom-color: #fab387;
+}
+
+/* Task list */
+.md-task-list-item > input {
+  margin-right: 0.4em;
+}
+
+.md-task-list-item > input:checked + span {
+  text-decoration: line-through;
+  color: var(--fg-muted);
+}
+
+/* ============================================================
+   Inline Code
+   ============================================================ */
+
+code,
+tt {
+  font-family: var(--font-code);
+  font-size: 0.9em;
+  background-color: var(--code-inline-bg);
+  color: var(--code-inline-fg);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* ============================================================
+   Code Block
+   ============================================================ */
+
+pre {
+  background-color: var(--code-block-bg);
+  color: var(--code-block-fg);
+  padding: 1em 1.2em;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 1em 0;
+  line-height: 1.5;
+}
+
+pre code,
+pre tt {
+  background: none;
+  color: inherit;
+  padding: 0;
+  border-radius: 0;
+  font-size: 0.9em;
+}
+
+.md-fences {
+  font-family: var(--font-code);
+  background-color: var(--code-block-bg);
+  border-radius: 8px;
+  padding: 0.8em 1em;
+  margin: 0.8em 0;
+  font-size: 0.9em;
+}
+
+/* Code block language label */
+.md-fences .code-tooltip {
+  background-color: var(--bg-secondary);
+  border-color: var(--table-border);
+  color: var(--fg-secondary);
+  border-radius: 4px;
+}
+
+/* ============================================================
+   Syntax Highlighting (CodeMirror)
+   ============================================================ */
+
+.cm-s-inner {
+  color: var(--code-block-fg);
+  background-color: var(--code-block-bg);
+}
+
+.cm-s-inner .cm-keyword    { color: #cba6f7; }
+.cm-s-inner .cm-atom       { color: #fab387; }
+.cm-s-inner .cm-number     { color: #fab387; }
+.cm-s-inner .cm-def        { color: #89b4fa; }
+.cm-s-inner .cm-variable   { color: #cdd6f4; }
+.cm-s-inner .cm-variable-2 { color: #89dcfe; }
+.cm-s-inner .cm-variable-3 { color: #f9e2af; }
+.cm-s-inner .cm-property   { color: #89dcfe; }
+.cm-s-inner .cm-operator   { color: #94e2d5; }
+.cm-s-inner .cm-comment    { color: #6c7086; font-style: italic; }
+.cm-s-inner .cm-string     { color: #a6e3a1; }
+.cm-s-inner .cm-string-2   { color: #a6e3a1; }
+.cm-s-inner .cm-meta       { color: #f9e2af; }
+.cm-s-inner .cm-qualifier  { color: #f9e2af; }
+.cm-s-inner .cm-builtin    { color: #f38ba8; }
+.cm-s-inner .cm-bracket    { color: #cdd6f4; }
+.cm-s-inner .cm-tag        { color: #f38ba8; }
+.cm-s-inner .cm-attribute  { color: #fab387; }
+.cm-s-inner .cm-header     { color: #89b4fa; }
+.cm-s-inner .cm-quote      { color: #a6e3a1; }
+.cm-s-inner .cm-hr         { color: #45475a; }
+.cm-s-inner .cm-link       { color: #89dcfe; }
+.cm-s-inner .cm-error      { color: #f38ba8; }
+
+.CodeMirror-cursor {
+  border-left: 2px solid var(--h5);
+}
+
+.CodeMirror-selected,
+.CodeMirror-selectedtext {
+  background: var(--bg-select) !important;
+}
+
+.CodeMirror-gutters {
+  background-color: var(--code-block-bg);
+  border-right: 1px solid var(--table-border);
+}
+
+.CodeMirror-linenumber {
+  color: var(--fg-muted);
+}
+
+/* ============================================================
+   Table
+   ============================================================ */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+  font-size: 0.95em;
+}
+
+th, td {
+  border: 1px solid var(--table-border);
+  padding: 8px 12px;
+  text-align: left;
+}
+
+th {
+  background-color: var(--table-header);
+  font-weight: 700;
+  color: var(--fg-primary);
+}
+
+tr:nth-child(even) {
+  background-color: var(--table-stripe);
+}
+
+tr:hover {
+  background-color: var(--bg-hover);
+}
+
+/* ============================================================
+   Horizontal Rule
+   ============================================================ */
+
+hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--hr-color), transparent);
+  margin: 2em 0;
+}
+
+/* ============================================================
+   Image
+   ============================================================ */
+
+img {
+  max-width: 100%;
+  border-radius: 6px;
+}
+
+#write img {
+  margin: 0.5em auto;
+  display: block;
+}
+
+/* ============================================================
+   TOC
+   ============================================================ */
+
+.md-toc {
+  font-size: 0.9em;
+}
+
+.md-toc-inner {
+  margin-left: 0;
+}
+
+.md-toc-h1 { color: var(--h1); }
+.md-toc-h2 { color: var(--h2); }
+.md-toc-h3 { color: var(--h3); }
+.md-toc-h4 { color: var(--h4); }
+.md-toc-h5 { color: var(--h5); }
+.md-toc-h6 { color: var(--h6); }
+
+/* ============================================================
+   Footnote
+   ============================================================ */
+
+sup.md-footnote {
+  color: var(--link);
+  background-color: var(--code-inline-bg);
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 0.85em;
+}
+
+.md-footnote-bottom {
+  border-top: 1px solid var(--table-border);
+  color: var(--fg-secondary);
+}
+
+/* ============================================================
+   Selection
+   ============================================================ */
+
+::selection {
+  background: var(--bg-select);
+}
+
+/* ============================================================
+   Scrollbar
+   ============================================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-hover);
+}
+
+/* ============================================================
+   Sidebar
+   ============================================================ */
+
+#typora-sidebar {
+  background-color: var(--bg-secondary);
+  color: var(--fg-secondary);
+}
+
+#typora-sidebar .sidebar-content {
+  color: var(--fg-secondary);
+}
+
+.file-node-content {
+  color: var(--fg-secondary);
+}
+
+.file-node-content:hover,
+.file-node-background {
+  background-color: var(--bg-hover);
+}
+
+.active .file-node-content,
+.file-node-content.active {
+  color: var(--fg-primary);
+  border-left: 3px solid var(--link);
+}
+
+#typora-sidebar #outline-content .outline-h1 { color: var(--h1); }
+#typora-sidebar #outline-content .outline-h2 { color: var(--h2); }
+#typora-sidebar #outline-content .outline-h3 { color: var(--h3); }
+#typora-sidebar #outline-content .outline-h4 { color: var(--h4); }
+#typora-sidebar #outline-content .outline-h5 { color: var(--h5); }
+#typora-sidebar #outline-content .outline-h6 { color: var(--h6); }
+
+/* ============================================================
+   Header Bar / Title Bar (macOS)
+   ============================================================ */
+
+header,
+.context-menu,
+.megamenu-content,
+.megamenu-opened header {
+  background-color: var(--bg-secondary);
+  color: var(--fg-primary);
+}
+
+.megamenu-menu-panel {
+  background-color: var(--bg-primary);
+}
+
+/* ============================================================
+   Source Mode
+   ============================================================ */
+
+.cm-s-typora-default .cm-header {
+  color: var(--h1);
+}
+
+#typora-source .CodeMirror-lines {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+/* ============================================================
+   Search Panel
+   ============================================================ */
+
+#md-searchpanel {
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--table-border);
+}
+
+#md-searchpanel input {
+  background-color: var(--bg-primary);
+  color: var(--fg-primary);
+  border: 1px solid var(--table-border);
+  border-radius: 4px;
+}
+
+.searchpanel-search-option-btn.active {
+  background-color: var(--h5);
+  color: var(--bg-primary);
+}
+
+/* ============================================================
+   Tooltip / Popup
+   ============================================================ */
+
+.md-hover-tip .md-arrow:after {
+  background: var(--bg-secondary);
+}
+
+.md-hover-tip .code-tooltip-content {
+  background-color: var(--bg-secondary);
+  color: var(--fg-primary);
+}
+
+/* ============================================================
+   Meta Block (YAML Front Matter)
+   ============================================================ */
+
+pre.md-meta-block {
+  background-color: var(--bg-secondary);
+  color: var(--fg-secondary);
+  border: 1px solid var(--table-border);
+  border-radius: 6px;
+  padding: 1em;
+}
+
+/* ============================================================
+   Print / Export
+   ============================================================ */
+
+@media print {
+  html, body {
+    background: #1e1e2e;
+    color: #cdd6f4;
+  }
+
+  h1 { color: #f38ba8; border-bottom-color: #f38ba8; }
+  h2 { color: #fab387; }
+  h3 { color: #f9e2af; }
+  h4 { color: #a6e3a1; }
+  h5 { color: #89b4fa; }
+  h6 { color: #cba6f7; }
+
+  pre, code {
+    background-color: #11111b !important;
+  }
+
+  a { color: #89dcfe; }
+}
