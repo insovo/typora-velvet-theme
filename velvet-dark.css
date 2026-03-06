@@ -1,7 +1,7 @@
 /*
  * Velvet Dark — A Typora Theme
  * Dark background + colorful headings + elegant typography
- * Fonts: Gill Sans Nova / 寒蝉全圆体 / FuraCode Nerd Font (system installed)
+ * Fonts: Gill Sans Nova / ChillRoundF / FuraCode Nerd Font (system installed)
  */
 
 /* ============================================================
@@ -13,6 +13,8 @@
    ============================================================ */
 
 :root {
+  --bg-color:      #1e1e2e;
+  --text-color:    #cdd6f4;
   --bg-primary:    #1e1e2e;
   --bg-secondary:  #181825;
   --bg-tertiary:   #11111b;
@@ -24,39 +26,67 @@
   --fg-muted:      #6c7086;
 
   --h1:            #f38ba8;
-  --h2:            #fab387;
-  --h3:            #f9e2af;
+  --h2:            #89b4fa;
+  --h3:            #74c7ec;
   --h4:            #a6e3a1;
-  --h5:            #89b4fa;
+  --h5:            #b4befe;
   --h6:            #cba6f7;
 
   --link:          #89dcfe;
   --bold:          #f38ba8;
-  --italic:        #cba6f7;
-  --highlight-bg:  #f9e2af33;
+  --italic:        #b4befe;
+  --highlight-bg:  #89b4fa40;
+  --highlight-fg:  #e6e9ef;
+  --highlight-border: #89b4fa99;
 
   --code-inline-bg:   #313244;
   --code-inline-fg:   #94e2d5;
   --code-block-bg:    #11111b;
   --code-block-fg:    #cdd6f4;
 
-  --quote-border:  #00bcd4;
-  --quote-bg:      #89b4fa0d;
+  --quote-border:  #aab3c2;
+  --quote-bg:      #b8c3d80f;
   --quote-fg:      #bac2de;
+  --quote-metal-1: #e3e8f0;
+  --quote-metal-2: #98a2b3;
+  --quote-metal-3: #cfd6e3;
+  --paper-base:      #111214;
+  --paper-base-soft: #171a1f;
+  --paper-border:    #2b2f36;
+  --paper-header:    #1c2027;
+  --paper-stripe:    #14181e;
+  --paper-shadow:    0 22px 38px #00000073, 0 6px 14px #00000040;
+  --paper-sheen:     #ffffff2f;
+  --paper-crease:    #00000066;
+  --paper-hover:     #232833;
+  --paper-tilt:      -0.34deg;
+  --paper-radius:    19px 12px 18px 14px / 12px 19px 13px 17px;
+  --paper-overlay-opacity: 0.72;
+
+  --sidebar-bg:        #2c2c2e;
+  --sidebar-fg:        #d1d1d6;
+  --sidebar-hover:     #3a3a3c;
+  --sidebar-active-bg: #0a84ff33;
+  --sidebar-active-fg: #eaf2ff;
+  --sidebar-accent:    #0a84ff;
+  --sidebar-divider:   #3a3a3c;
 
   --table-border:  #45475a;
   --table-header:  #313244;
   --table-stripe:  #252536;
+  --table-radius:  12px;
+  --table-shadow:  0 10px 24px #00000026;
+  --image-shadow:  0 10px 24px #0000002b;
 
   --hr-color:      #45475a;
   --scrollbar:     #45475a;
   --scrollbar-hover: #585b70;
 
-  --font-body:    "Gill Sans Nova", "寒蝉全圆体", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", "Helvetica Neue", Arial, sans-serif;
-  --font-heading: "Gill Sans Nova", "寒蝉全圆体", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", "Helvetica Neue", Arial, sans-serif;
-  --font-code:    "FuraCode Nerd Font", "Fira Code", ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-body:    "Gill Sans Nova", "ChillRoundF", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", "Helvetica Neue", Arial, sans-serif;
+  --font-heading: "Gill Sans Nova", "ChillRoundF", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", "Helvetica Neue", Arial, sans-serif;
+  --font-code:    "FuraCode Nerd Font", "Fira Code", "Sarasa Mono SC", "Noto Sans Mono CJK SC", "LXGW WenKai Mono", "ChillRoundF", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
-  --font-size:    16px;
+  --font-size:    12px;
   --line-height:  1.8;
 
   --guide-width:  1.5px;
@@ -97,36 +127,36 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  font-weight: 700;
+  font-weight: 100;
   line-height: 1.4;
   margin-top: 1.6em;
   margin-bottom: 0.6em;
 }
 
 h1 {
-  font-size: 2em;
+  font-size: 1.3333em;
   color: var(--h1);
   padding-bottom: 0.3em;
   border-bottom: 2px solid var(--h1);
 }
 
 h2 {
-  font-size: 1.6em;
+  font-size: 1.1667em;
   color: var(--h2);
 }
 
 h3 {
-  font-size: 1.35em;
+  font-size: 1.0833em;
   color: var(--h3);
 }
 
 h4 {
-  font-size: 1.15em;
+  font-size: 1em;
   color: var(--h4);
 }
 
 h5 {
-  font-size: 1.05em;
+  font-size: 1em;
   color: var(--h5);
 }
 
@@ -148,16 +178,26 @@ strong {
   font-weight: 700;
 }
 
-em {
+em,
+i {
   color: var(--italic);
   font-style: italic;
+  font-family: var(--font-body);
+  font-synthesis: style;
 }
 
 mark {
   background-color: var(--highlight-bg);
-  color: var(--fg-primary);
+  color: var(--highlight-fg);
   padding: 1px 4px;
   border-radius: 3px;
+  box-shadow: inset 0 -1px 0 var(--highlight-border);
+}
+
+/* Keep visible markdown markers for ==highlight== while editing in Typora */
+mark .md-meta {
+  color: var(--fg-muted);
+  opacity: 0.75;
 }
 
 /* ============================================================
@@ -179,15 +219,58 @@ a:hover {
 
 blockquote {
   margin: 1em 0;
-  padding: 0.6em 1.2em;
-  border-left: 3px solid var(--quote-border);
-  background-color: var(--quote-bg);
+  padding: 0.75em 1.2em;
+  border: 1px solid var(--paper-border);
+  background: linear-gradient(160deg, var(--paper-base-soft) 0%, var(--paper-base) 100%);
   color: var(--quote-fg);
-  border-radius: 0 6px 6px 0;
+  border-radius: var(--paper-radius);
+  box-shadow:
+    0 1px 0 #ffffff1a inset,
+    0 -1px 0 #0000002b inset,
+    var(--paper-shadow);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+blockquote::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(
+    180deg,
+    var(--quote-metal-1) 0%,
+    var(--quote-metal-2) 52%,
+    var(--quote-metal-3) 100%
+  );
 }
 
 blockquote blockquote {
-  border-left-color: var(--h6);
+  margin-top: 0.8em;
+  box-shadow: none;
+}
+
+blockquote blockquote::before {
+  opacity: 0.82;
+}
+
+blockquote::after,
+table::after {
+  content: "";
+  position: absolute;
+  inset: -2px 2px -3px -2px;
+  border-radius: inherit;
+  background:
+    radial-gradient(120% 72% at 12% -20%, var(--paper-sheen) 0%, transparent 62%),
+    radial-gradient(120% 90% at 92% 120%, var(--paper-crease) 0%, transparent 58%);
+  transform: rotate(var(--paper-tilt)) scale(1.01, 0.996);
+  opacity: var(--paper-overlay-opacity);
+  filter: blur(1.4px);
+  pointer-events: none;
+  z-index: -1;
 }
 
 /* ============================================================
@@ -289,15 +372,15 @@ ol > li::marker {
   border-left-color: #cba6f7;
   border-bottom-color: #cba6f7;
 }
-/* Level 5 — 橙 */
+/* Level 5 — 靛蓝 */
 #write li li li li li:hover > ul > li:has(~ li:hover)::before,
 #write li li li li li:hover > ol > li:has(~ li:hover)::before {
-  background: #fab387;
+  background: #b4befe;
 }
 #write li li li li li:hover > ul > li:hover::before,
 #write li li li li li:hover > ol > li:hover::before {
-  border-left-color: #fab387;
-  border-bottom-color: #fab387;
+  border-left-color: #b4befe;
+  border-bottom-color: #b4befe;
 }
 
 /* Task list */
@@ -305,7 +388,9 @@ ol > li::marker {
   margin-right: 0.4em;
 }
 
-.md-task-list-item > input:checked + span {
+.md-task-list-item > input:checked + *,
+.md-task-list-item > input[checked] + *,
+.md-task-list-item.task-list-done > *:not(input) {
   text-decoration: line-through;
   color: var(--fg-muted);
 }
@@ -328,18 +413,22 @@ tt {
    Code Block
    ============================================================ */
 
-pre {
-  background-color: var(--code-block-bg);
+pre.md-fences {
+  background: var(--paper-base);
   color: var(--code-block-fg);
   padding: 1em 1.2em;
-  border-radius: 8px;
+  border: 1px solid var(--paper-border);
+  border-radius: var(--paper-radius);
+  box-shadow: var(--paper-shadow);
   overflow-x: auto;
   margin: 1em 0;
   line-height: 1.5;
+  position: relative;
+  isolation: isolate;
 }
 
-pre code,
-pre tt {
+pre.md-fences code,
+pre.md-fences tt {
   background: none;
   color: inherit;
   padding: 0;
@@ -349,19 +438,45 @@ pre tt {
 
 .md-fences {
   font-family: var(--font-code);
-  background-color: var(--code-block-bg);
-  border-radius: 8px;
+  background: var(--paper-base);
+  border: 1px solid var(--paper-border);
+  border-radius: var(--paper-radius);
+  box-shadow: var(--paper-shadow);
   padding: 0.8em 1em;
-  margin: 0.8em 0;
+  padding-top: 1.8em;
+  margin: 0.95em 0 1.45em;
   font-size: 0.9em;
+  overflow: visible;
+  position: relative;
+  isolation: isolate;
 }
 
-/* Code block language label */
-.md-fences .code-tooltip {
-  background-color: var(--bg-secondary);
-  border-color: var(--table-border);
-  color: var(--fg-secondary);
-  border-radius: 4px;
+
+/* Code block language label — small tag style */
+#write .md-fences > .code-tooltip {
+  background: transparent;
+  border: none;
+  color: var(--fg-muted);
+  border-radius: 0;
+  z-index: 8;
+  position: absolute;
+  right: 0.5em;
+  top: 0.3em;
+  bottom: auto;
+  float: none;
+  padding: 0;
+  font-size: 0.75em;
+  line-height: 1.6;
+  pointer-events: auto;
+  box-shadow: none;
+  opacity: 0.6;
+}
+
+#write .md-fences > .code-tooltip .ty-input,
+#write .md-fences > .code-tooltip input {
+  min-width: auto;
+  padding: 0 2px;
+  font-size: inherit;
 }
 
 /* ============================================================
@@ -370,7 +485,7 @@ pre tt {
 
 .cm-s-inner {
   color: var(--code-block-fg);
-  background-color: var(--code-block-bg);
+  background-color: transparent;
 }
 
 .cm-s-inner .cm-keyword    { color: #cba6f7; }
@@ -407,7 +522,7 @@ pre tt {
 }
 
 .CodeMirror-gutters {
-  background-color: var(--code-block-bg);
+  background-color: transparent;
   border-right: 1px solid var(--table-border);
 }
 
@@ -421,29 +536,68 @@ pre tt {
 
 table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   margin: 1em 0;
   font-size: 0.95em;
+  border: 1px solid var(--paper-border);
+  border-radius: var(--paper-radius);
+  overflow: hidden;
+  box-shadow:
+    0 1px 0 #ffffff1a inset,
+    0 -1px 0 #0000002b inset,
+    var(--paper-shadow);
+  background: linear-gradient(160deg, var(--paper-base-soft) 0%, var(--paper-base) 100%);
+  position: relative;
+  isolation: isolate;
 }
 
-th, td {
-  border: 1px solid var(--table-border);
-  padding: 8px 12px;
+th,
+td {
+  border-right: 1px solid var(--paper-border);
+  border-bottom: 1px solid var(--paper-border);
+  padding: 9px 12px;
   text-align: left;
 }
 
 th {
-  background-color: var(--table-header);
+  background: linear-gradient(to bottom, var(--paper-header), var(--paper-base-soft));
   font-weight: 700;
   color: var(--fg-primary);
 }
 
-tr:nth-child(even) {
-  background-color: var(--table-stripe);
+thead th:last-child,
+tbody td:last-child {
+  border-right: none;
 }
 
-tr:hover {
-  background-color: var(--bg-hover);
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+thead th:first-child {
+  border-top-left-radius: var(--table-radius);
+}
+
+thead th:last-child {
+  border-top-right-radius: var(--table-radius);
+}
+
+tbody tr:last-child td:first-child {
+  border-bottom-left-radius: var(--table-radius);
+}
+
+tbody tr:last-child td:last-child {
+  border-bottom-right-radius: var(--table-radius);
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--paper-stripe);
+}
+
+tbody tr:hover td {
+  background-color: var(--paper-hover);
+  transition: background-color 0.15s ease;
 }
 
 /* ============================================================
@@ -463,12 +617,25 @@ hr {
 
 img {
   max-width: 100%;
-  border-radius: 6px;
+  border-radius: var(--table-radius);
+  border: 1px solid var(--table-border);
+  box-shadow: var(--image-shadow);
 }
 
 #write img {
-  margin: 0.5em auto;
+  margin: 0.8em auto;
   display: block;
+}
+
+#write .md-image {
+  display: block;
+  text-align: center;
+}
+
+#write .md-image img,
+#write p > img {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* ============================================================
@@ -542,27 +709,38 @@ sup.md-footnote {
    ============================================================ */
 
 #typora-sidebar {
-  background-color: var(--bg-secondary);
-  color: var(--fg-secondary);
+  background-color: var(--sidebar-bg);
+  color: var(--sidebar-fg);
+  border-right: 1px solid var(--sidebar-divider);
 }
 
 #typora-sidebar .sidebar-content {
-  color: var(--fg-secondary);
+  color: var(--sidebar-fg);
 }
 
 .file-node-content {
-  color: var(--fg-secondary);
+  color: var(--sidebar-fg);
+  border-radius: 8px;
+  margin: 1px 6px;
 }
 
 .file-node-content:hover,
 .file-node-background {
-  background-color: var(--bg-hover);
+  background-color: var(--sidebar-hover);
 }
 
 .active .file-node-content,
 .file-node-content.active {
-  color: var(--fg-primary);
-  border-left: 3px solid var(--link);
+  color: var(--sidebar-active-fg);
+  background-color: var(--sidebar-active-bg);
+  border-left: none;
+  font-weight: 600;
+}
+
+.file-node-content .fa-folder,
+.file-node-content .fa-folder-open,
+.file-node-content .ion-folder {
+  color: var(--sidebar-accent);
 }
 
 #typora-sidebar #outline-content .outline-h1 { color: var(--h1); }
@@ -606,7 +784,7 @@ header,
    ============================================================ */
 
 #md-searchpanel {
-  background-color: var(--bg-secondary);
+  background-color: var(--sidebar-bg);
   border-bottom: 1px solid var(--table-border);
 }
 
@@ -658,10 +836,10 @@ pre.md-meta-block {
   }
 
   h1 { color: #f38ba8; border-bottom-color: #f38ba8; }
-  h2 { color: #fab387; }
-  h3 { color: #f9e2af; }
+  h2 { color: #89b4fa; }
+  h3 { color: #74c7ec; }
   h4 { color: #a6e3a1; }
-  h5 { color: #89b4fa; }
+  h5 { color: #b4befe; }
   h6 { color: #cba6f7; }
 
   pre, code {

@@ -1,0 +1,27 @@
+matches:
+  # :now → 2026-03-06 14:30:25
+  - trigger: ":now"
+    replace: "{{val}}"
+    vars:
+      - name: val
+        type: date
+        params:
+          format: "%Y-%m-%d %H:%M:%S"
+
+  # :date → 2026-03-06
+  - trigger: ":date"
+    replace: "{{val}}"
+    vars:
+      - name: val
+        type: date
+        params:
+          format: "%Y-%m-%d"
+
+  # :time → 14:30:25
+  - trigger: ":time"
+    replace: "{{val}}"
+    vars:
+      - name: val
+        type: date
+        params:
+          format: "%H:%M:%S"
